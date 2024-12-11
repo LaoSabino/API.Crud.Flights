@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/API.Crud.Flights/DesignTimeBuild
+/.vs/API.Crud.Flights/FileContentIndex
+/.vs/ProjectEvaluation
+/.vs/API.Crud.Flights/v17
+/API.Crud.Flights/bin/Debug/net8.0
+/API.Crud.Flights/obj
