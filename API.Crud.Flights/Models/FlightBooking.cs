@@ -7,8 +7,8 @@ public class FlightBooking
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string Id { get; set; }
-    public string PassengerName { get; set; }
-    public string FlightNumber { get; set; }
+    public required string Id { get; set; }
+    public required string PassengerName { get; set; }
+    public required string FlightNumber { get; set; }
     public DateTime Date { get; set; }
 }

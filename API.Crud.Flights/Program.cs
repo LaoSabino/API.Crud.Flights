@@ -61,7 +61,7 @@ app.MapGet("/flightbookings/{id}", async (FlightBookingService service, string i
     return Results.Ok(booking);
 }).WithName("GetFlightById");
 
-app.MapPut("/flightbookings/{id}", async (FlightBookingService service, string id, FlightBooking updatedBooking) =>
+app.MapPut("/flightbookings/{id}", async (FlightBookingService service, string id, FlightBookingDto updatedBookingDto) =>
 {
     var booking = await service.GetAsync(id);
 
@@ -69,8 +69,7 @@ app.MapPut("/flightbookings/{id}", async (FlightBookingService service, string i
     {
         return Results.NotFound();
     }
-    updatedBooking.Id = booking.Id;
-    await service.UpdateAsync(id, updatedBooking);
+    await service.UpdateAsync(id, updatedBookingDto);
 
     return Results.NoContent();
 }).WithName("UpdateFlights");

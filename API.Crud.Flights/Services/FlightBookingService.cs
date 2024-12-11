@@ -1,4 +1,5 @@
 ﻿using API.Crud.Flights.Models;
+using API.Crud.Flights.Parses;
 using API.Crud.Flights.Settings;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -25,8 +26,11 @@ public class FlightBookingService
     public async Task CreateAsync(FlightBooking newFlightBooking) =>
         await _flightBookings.InsertOneAsync(newFlightBooking);
 
-    public async Task UpdateAsync(string id, FlightBooking updatedFlightBooking) =>
+    public async Task UpdateAsync(string id, FlightBookingDto updatedFlightBookingDto)
+    {
+        FlightBooking updatedFlightBooking = FlightBookingFactory.ParseFlightBooking(id, updatedFlightBookingDto);
         await _flightBookings.ReplaceOneAsync(flightBooking => flightBooking.Id == id, updatedFlightBooking);
+    }
 
     public async Task RemoveAsync(string id) =>
         await _flightBookings.DeleteOneAsync(flightBooking => flightBooking.Id == id);

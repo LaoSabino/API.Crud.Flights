@@ -15,4 +15,12 @@ public static class FlightBookingFactory
             PassengerName = dto.PassengerName
         };
     }
+
+    public static FlightBooking ParseFlightBooking(string id, FlightBookingDto updatedFlightBookingDto) => new()
+    {
+        Date = updatedFlightBookingDto.Date,
+        FlightNumber = updatedFlightBookingDto.FlightNumber,
+        Id = id,
+        PassengerName = updatedFlightBookingDto.PassengerName
+    };
 }
